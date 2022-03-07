@@ -1,0 +1,20 @@
+pipeline {
+        agent none
+        stages {
+		  stage("Checkout") {
+            agent any
+            steps {
+                sh 'git clone https://github.com/gvsiva2008/Jenkins.git'
+				sh 'cd Maven-simple'
+            }
+          }
+		  stage("build ") {
+            agent any
+            steps {
+              
+                sh 'mvn clean install'
+              
+            }
+          }
+        }
+      }
